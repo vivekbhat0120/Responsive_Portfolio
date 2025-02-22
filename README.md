@@ -52,8 +52,8 @@ Include project case studies with detailed descriptions
 
 If you’d like to collaborate, have feedback, or just want to say hi, feel free to reach out:
 
-Email: [YourEmail@example.com]
+Email: vivekbhat0120@gmail.com
 
-LinkedIn: YourLinkedInProfile
+LinkedIn: https://www.linkedin.com/in/vivekbhat01/
 
 Thank you for visiting my portfolio! 🚀
