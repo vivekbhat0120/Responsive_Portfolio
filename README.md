@@ -1,36 +1,41 @@
 # Responsive_Portfolio-Vivek
 
-📖 About the Project
-
-This portfolio website is designed to present my professional profile, skills, and projects in a clean, elegant, and user-friendly manner. The site is fully responsive, adapting seamlessly across different devices and screen sizes.
-
 CLICK HERE TO VISIT THE PORTFOLIO 👇
 
 https://vivekbhat0120.github.io/Responsive_Portfolio/
 
 CLICK HERE TO VISIT THE PORTFOLIO 👆
 
+
+📖 About the Project
+
+This is a fully responsive portfolio website built using HTML, CSS, and JavaScript. It showcases my skills, projects, and experience as a web developer with smooth animations, light and dark mode support, and a clean, user-friendly design.
+
+🌟 Features
+
+Responsive Design: Works seamlessly on all screen sizes, from mobile to desktop.
+
+Dark/Light Mode: Toggle between dark and light themes with a smooth transition.
+
+Interactive Navigation: Mobile-friendly menu with show/hide functionality.
+
+Scroll Animations: Beautiful reveal animations on scroll using ScrollReveal.js.
+
+Contact Form: Functional email form powered by EmailJS.
+
+Project Showcase: Clean and stylish display of recent works with links.
+
 🛠️ Technologies Used
 
-HTML5: For the structure and content of the website
+HTML5
 
-CSS3: For styling and making the website visually appealing
+CSS3 (including custom properties and responsive layout)
 
-JavaScript: For interactivity and dynamic content
+JavaScript (ES6+)
 
-Bootstrap: For a responsive and mobile-first design
+ScrollReveal.js (for scroll animations)
 
-📋 Features
-
-Fully responsive and mobile-friendly design
-
-Clean and modern user interface
-
-Smooth scrolling and navigation
-
-Interactive sections showcasing my skills and projects
-
-Contact form for easy communication
+EmailJS (for contact form)
 
 🚀 How to Use
 
