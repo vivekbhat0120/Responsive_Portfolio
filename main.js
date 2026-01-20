@@ -1,133 +1,137 @@
 /*=============== SHOW MENU ===============*/
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
+const navMenu = document.getElementById("nav-menu"),
+  navToggle = document.getElementById("nav-toggle"),
+  navClose = document.getElementById("nav-close");
 
 /*===== MENU SHOW =====*/
-if(navToggle){
-    navToggle.addEventListener('click', () =>{
-        navMenu.classList.add('show-menu')
-    })
+if (navToggle) {
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.add("show-menu");
+  });
 }
 
 /*===== MENU HIDDEN =====*/
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove('show-menu')
-    })
+if (navClose) {
+  navClose.addEventListener("click", () => {
+    navMenu.classList.remove("show-menu");
+  });
 }
 
 /*=============== REMOVE MENU MOBILE ===============*/
-const navLinks = document.querySelectorAll('.nav__link')
+const navLinks = document.querySelectorAll(".nav__link");
 
-const linkAction = () =>{
-    const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show-menu')
-}
+const linkAction = () => {
+  const navMenu = document.getElementById("nav-menu");
+  // When we click on each nav__link, we remove the show-menu class
+  navMenu.classList.remove("show-menu");
+};
 
-navLinks.forEach(n => n.addEventListener('click', linkAction))
+navLinks.forEach((n) => n.addEventListener("click", linkAction));
 
 /*=============== ADD BLUR HEADER ===============*/
-const blurHeader = () =>{
-    const header = document.getElementById('header')
-    // When we click on each nav__link, we remove the show-menu class
-    this.scrollY >= 50 ? header.classList.add('blur-header') : header.classList.remove('blur-header') }
+const blurHeader = () => {
+  const header = document.getElementById("header");
+  // When we click on each nav__link, we remove the show-menu class
+  this.scrollY >= 50
+    ? header.classList.add("blur-header")
+    : header.classList.remove("blur-header");
+};
 
-window.addEventListener('scroll', blurHeader)
-
-
+window.addEventListener("scroll", blurHeader);
 
 /*=============== EMAIL JS ===============*/
 
+const contactForm = document.getElementById("contact-form"),
+  contactMessage = document.getElementById("contact-message");
 
-const contactForm = document.getElementById('contact-form'),
-      contactMessage = document.getElementById('contact-message')
+const sendEmail = (e) => {
+  e.preventDefault();
 
-      const sendEmail = (e) =>{
-        e.preventDefault()
+  //   service id -- template -- #form -- publickey
+  emailjs
+    .sendForm(
+      "service_fcqdxmp",
+      "template_ukdw4jo",
+      "#contact-form",
+      "EfF1QtQuB1UbzyxyU"
+    )
+    .then(
+      () => {
+        // show message
+        contactMessage.textContent = "Message sent successfully ✅";
 
-        //   service id -- template -- #form -- publickey 
-        emailjs.sendForm('service_g2f9dh7','template_6uu0oeg','#contact-form','EfF1QtQuB1UbzyxyU')
-          .then(() =>{
-              // show message
-              contactMessage.textContent = 'Message sent successfully ✅'
+        //   remove message after 5 sec
+        setTimeout(() => {
+          contactMessage.textContent = "";
+        }, 5000);
 
-            //   remove message after 5 sec
-              setTimeout(() =>{
-                  contactMessage.textContent = ''
-              }, 5000)
-
-            //   clear input field 
-              contactForm.reset()
-
-            }, () =>{
-                // show error message
-                contactMessage.textContent = 'Something went wrong ❌'
-            })
+        //   clear input field
+        contactForm.reset();
+      },
+      () => {
+        // show error message
+        contactMessage.textContent = "Something went wrong ❌";
       }
+    );
+};
 
-      contactForm.addEventListener('submit', sendEmail)
+contactForm.addEventListener("submit", sendEmail);
 
+/*=============== SHOW SCROLL UP ===============*/
 
-/*=============== SHOW SCROLL UP ===============*/ 
+const scrollUp = () => {
+  const scrollUp = document.getElementById("scroll-up");
+  // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
+  this.scrollY >= 560
+    ? scrollUp.classList.add("show-scroll")
+    : scrollUp.classList.remove("show-scroll");
+};
 
-const scrollUp = () =>{
-    const scrollUp = document.getElementById('scroll-up')
-    // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
-    this.scrollY >= 560 ? scrollUp.classList.add('show-scroll') 
-                        : scrollUp.classList.remove('show-scroll')
-}
-
-window.addEventListener('scroll', scrollUp)
-
+window.addEventListener("scroll", scrollUp);
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
-const sections = document.querySelectorAll('section[id]')
+const sections = document.querySelectorAll("section[id]");
 
-const scrollActive = () =>{
-    const scrolldown = window.scrollY
+const scrollActive = () => {
+  const scrolldown = window.scrollY;
 
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight,
-              sectionTop = current.offsetTop - 58,
-              sectionId = current.getAttribute('id'),
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight,
+      sectionTop = current.offsetTop - 58,
+      sectionId = current.getAttribute("id"),
+      sectionsClass = document.querySelector(
+        ".nav__menu a[href*=" + sectionId + "]"
+      );
 
-              sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+    if (scrolldown > sectionTop && scrolldown <= sectionTop + sectionHeight) {
+      sectionsClass.classList.add("active-link");
+    } else {
+      sectionsClass.classList.remove("active-link");
+    }
+  });
+};
 
-        if(scrolldown > sectionTop && scrolldown <= sectionTop + sectionHeight){
-            sectionsClass.classList.add('active-link')
-        }else{
-            sectionsClass.classList.remove('active-link')
-        }
-    })
-}
-
-window.addEventListener('scroll', scrollActive)
-
+window.addEventListener("scroll", scrollActive);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
- 
+
 const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 1500,
-    delay: 200,
-    // reset: true
-})
+  origin: "top",
+  distance: "60px",
+  duration: 1500,
+  delay: 200,
+  // reset: true
+});
 
-sr.reveal(`.home__data, .experience, .skills, .contact__container`)
-sr.reveal(`.home__img`, {delay: 600})
-sr.reveal(`.home__scroll`, {delay: 600})
-sr.reveal(`.work__card, .services__card`, {intervaln: 100})
-sr.reveal(`.about__content`, {origin: 'right'})
-sr.reveal(`.about__img`, {origin: 'left'})
-
-
+sr.reveal(`.home__data, .experience, .skills, .contact__container`);
+sr.reveal(`.home__img`, { delay: 600 });
+sr.reveal(`.home__scroll`, { delay: 600 });
+sr.reveal(`.work__card, .services__card`, { intervaln: 100 });
+sr.reveal(`.about__content`, { origin: "right" });
+sr.reveal(`.about__img`, { origin: "left" });
 
 /*=============== DARK MODE 1 ===============*/
-
 
 // document.addEventListener('DOMContentLoaded', function() {
 //     const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -142,11 +146,7 @@ sr.reveal(`.about__img`, {origin: 'left'})
 // });
 // });
 
-
-
 /*=============== DARK MODE 2 ===============*/
-
-
 
 // const switchTheme = (evt) => {
 //     const btn = evt.target;
@@ -172,9 +172,7 @@ sr.reveal(`.about__img`, {origin: 'left'})
 //     switchModeBtn.textContent = currentTheme;
 // }
 
-
 /*=============== DARK MODE 3 ===============*/
-
 
 // document.addEventListener('DOMContentLoaded', function() {
 //     const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -200,55 +198,71 @@ sr.reveal(`.about__img`, {origin: 'left'})
 //     });
 // });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-    const root = document.documentElement;
-    const navMenu = document.getElementById('nav-menu');
+document.addEventListener("DOMContentLoaded", function () {
+  const darkModeToggle = document.getElementById("dark-mode-toggle");
+  const body = document.body;
+  const root = document.documentElement;
+  const navMenu = document.getElementById("nav-menu");
 
-    darkModeToggle.addEventListener('click', () => {
-        const isDarkMode = body.classList.contains('dark-mode');
+  darkModeToggle.addEventListener("click", () => {
+    const isDarkMode = body.classList.contains("dark-mode");
 
-        if (isDarkMode) {
-            root.style.setProperty('--body-color', 'hsl(var(--hue), 30%, 95%)');
-            root.style.setProperty('--text-color', 'hsl(var(--hue), 40%, 16%)');
-            root.style.setProperty('--title-color', 'hsl(var(--hue), 40%, 10%)');
-            root.style.setProperty('--container-color', 'hsl(var(--hue), 90%, 90%)'); // Light background for work, services, footer
-            root.style.setProperty('--arrow-color', 'hsl(var(--hue), 40%, 10%)'); // Light arrow for recent work animation
-            darkModeToggle.querySelector('i').classList.replace('ri-sun-line', 'ri-moon-line');
-        } else {
-            root.style.setProperty('--body-color', 'hsl(var(--hue), 40%, 16%)');
-            root.style.setProperty('--text-color', 'hsl(var(--hue), 20%, 80%)');
-            root.style.setProperty('--title-color', 'hsl(var(--hue), 30%, 95%)');
-            root.style.setProperty('--container-color', 'hsl(var(--hue), 40%, 20%)'); // Dark background for work, services, footer
-            root.style.setProperty('--arrow-color', 'hsl(var(--hue), 20%, 80%)'); // Dark arrow for recent work animation
-            darkModeToggle.querySelector('i').classList.replace('ri-moon-line', 'ri-sun-line');
-        }
+    if (isDarkMode) {
+      root.style.setProperty("--body-color", "hsl(var(--hue), 30%, 95%)");
+      root.style.setProperty("--text-color", "hsl(var(--hue), 40%, 16%)");
+      root.style.setProperty("--title-color", "hsl(var(--hue), 40%, 10%)");
+      root.style.setProperty("--container-color", "hsl(var(--hue), 90%, 90%)"); // Light background for work, services, footer
+      root.style.setProperty("--arrow-color", "hsl(var(--hue), 40%, 10%)"); // Light arrow for recent work animation
+      darkModeToggle
+        .querySelector("i")
+        .classList.replace("ri-sun-line", "ri-moon-line");
+    } else {
+      root.style.setProperty("--body-color", "hsl(var(--hue), 40%, 16%)");
+      root.style.setProperty("--text-color", "hsl(var(--hue), 20%, 80%)");
+      root.style.setProperty("--title-color", "hsl(var(--hue), 30%, 95%)");
+      root.style.setProperty("--container-color", "hsl(var(--hue), 40%, 20%)"); // Dark background for work, services, footer
+      root.style.setProperty("--arrow-color", "hsl(var(--hue), 20%, 80%)"); // Dark arrow for recent work animation
+      darkModeToggle
+        .querySelector("i")
+        .classList.replace("ri-moon-line", "ri-sun-line");
+    }
 
-        body.classList.toggle('dark-mode');
+    body.classList.toggle("dark-mode");
+  });
+
+  // Hide dark-mode toggle when mobile menu is open
+  const navToggle = document.getElementById("nav-toggle");
+  const navClose = document.getElementById("nav-close");
+
+  if (navToggle) {
+    navToggle.addEventListener("click", () => {
+      darkModeToggle.style.display = "none";
     });
+  }
 
-    // Hide dark-mode toggle when mobile menu is open
-    const navToggle = document.getElementById('nav-toggle');
-    const navClose = document.getElementById('nav-close');
+  if (navClose) {
+    navClose.addEventListener("click", () => {
+      darkModeToggle.style.display = "block";
+    });
+  }
 
-    if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            darkModeToggle.style.display = 'none';
-        });
+  // Center the contact section horizontally
+  const contactContainer = document.querySelector(".contact__container");
+  if (contactContainer) {
+    contactContainer.style.display = "flex";
+    contactContainer.style.justifyContent = "center";
+    contactContainer.style.alignItems = "center";
+  }
+
+  // Populate hidden page_url input for EmailJS templates
+  const pageUrlInput =
+    document.getElementById("page_url_input") ||
+    document.querySelector('input[name="page_url"]');
+  if (pageUrlInput) {
+    try {
+      pageUrlInput.value = window.location.href;
+    } catch (err) {
+      // silent fail if window is unavailable (e.g., server-side rendering)
     }
-
-    if (navClose) {
-        navClose.addEventListener('click', () => {
-            darkModeToggle.style.display = 'block';
-        });
-    }
-
-    // Center the contact section horizontally
-    const contactContainer = document.querySelector('.contact__container');
-    if (contactContainer) {
-        contactContainer.style.display = 'flex';
-        contactContainer.style.justifyContent = 'center';
-        contactContainer.style.alignItems = 'center';
-    }
+  }
 });
