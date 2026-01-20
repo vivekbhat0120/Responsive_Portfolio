@@ -6,7 +6,7 @@
   --header-height: 3.5rem;
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  /* 
+  /*
         Change favorite color
         Default: hsl(230, 55%, 55%)
         Purple: hsl(245, 55%, 55%) - Blue: hsl(210, 55%, 55%)
@@ -14,7 +14,7 @@
         Orange: hsl(14, 55%, 55%)
 
         For more colors visit: https://colors.dopely.top/color-pedia
-        -> Choose any color 
+        -> Choose any color
         -> Click on tab (Color Conversion)
         -> Copy the color mode (HSL)
   */
@@ -49,22 +49,7 @@
   --z-fixed: 100;
 }
 
-/*========== Responsive typography==========*/
-
-@media screen and (min-width: 1150px) {
-  :root {
-    --biggest-font-size: 5.5rem;
-    --big-font-size: 2.75rem;
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.25rem;
-    --normal-font-size: 1.125rem;
-    --small-font-size: 0.875rem;
-  }
-}
-
 /*=============== BASE ===============*/
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -121,7 +106,6 @@ img {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
-
 .container {
   max-width: 1120px;
   margin-inline: 1.5rem;
@@ -148,7 +132,6 @@ img {
 }
 
 /*=============== HEADER & NAV ===============*/
-
 .header {
   position: fixed;
   width: 100%;
@@ -183,13 +166,13 @@ img {
   cursor: pointer;
 }
 
-/* DARK MODE  */
-
+/* DARK MODE */
 .toggle-icon {
   width: 80%;
   height: 100%;
   margin-top: 5px;
 }
+
 .dark-mode-toggle {
   position: relative;
   top: 0;
@@ -197,31 +180,6 @@ img {
 
 .dark-mode-toggle:hover {
   cursor: pointer;
-}
-
-/* Navigation for mobile devices */
-
-@media screen and (max-width: 1150px) {
-  /* DARK/LIGHT MODE */
-
-  .dark-mode-toggle {
-    position: fixed;
-    top: 0;
-    right: 10%;
-    padding: 1.2rem;
-  }
-  .nav__menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    background-color: hsla(var(--hue), 70%, 4%, 0.2);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    width: 80%;
-    height: 100%;
-    padding: 7rem 3rem;
-    transition: rihgt 0.4s;
-  }
 }
 
 .nav__list {
@@ -263,13 +221,11 @@ img {
 }
 
 /* Show menu */
-
 .show-menu {
   right: 0;
 }
 
 /* Add blur header */
-
 .blur-header::after {
   content: "";
   position: absolute;
@@ -284,7 +240,6 @@ img {
 }
 
 /* Active link */
-
 .active-link {
   color: var(--first-color-light);
 }
@@ -292,8 +247,8 @@ img {
 .active-link::after {
   width: 50%;
 }
-/*=============== HOME ===============*/
 
+/*=============== HOME ===============*/
 .home__container {
   row-gap: 2rem;
   padding-top: 1rem;
@@ -360,7 +315,6 @@ img {
 }
 
 /* Animate scroll icon */
-
 @keyframes scroll-down {
   0% {
     transform: translateY(-1rem);
@@ -377,7 +331,6 @@ img {
 }
 
 /*=============== BUTTON ===============*/
-
 .button {
   display: inline-flex;
   justify-content: center;
@@ -394,7 +347,6 @@ img {
 }
 
 /*=============== WORKS ===============*/
-
 .work {
   background-color: var(--container-color);
 }
@@ -419,6 +371,7 @@ img {
   height: 300px;
   object-fit: cover;
 }
+
 .work__title {
   font-size: var(--h3-font-size);
   margin-bottom: 0.75rem;
@@ -446,7 +399,6 @@ img {
 }
 
 /*=============== INFO ===============*/
-
 .info__container {
   row-gap: 3rem;
 }
@@ -469,7 +421,6 @@ img {
 }
 
 /* ABOUT */
-
 .about {
   row-gap: 3rem;
 }
@@ -481,6 +432,7 @@ img {
 .about__description b {
   color: var(--first-color-light);
 }
+
 .about__img {
   width: 300px;
   justify-self: center;
@@ -496,7 +448,6 @@ img {
 }
 
 /* EXPERIENCE */
-
 .experience__content {
   row-gap: 3rem;
 }
@@ -522,7 +473,6 @@ img {
 }
 
 /* SKILLS */
-
 .skills__img {
   width: 35px;
   margin-bottom: 0.5rem;
@@ -553,12 +503,14 @@ img {
   margin-top: 60px;
   row-gap: 1.5rem;
 }
+
 .certifications__list {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: center;
 }
+
 .certifications__item {
   background-color: var(--container-color);
   padding: 1rem;
@@ -573,6 +525,7 @@ img {
   min-height: 220px;
   justify-content: center;
 }
+
 .certifications__item::before {
   content: "";
 }
@@ -630,30 +583,7 @@ img {
   border-radius: 14px;
 }
 
-/* Responsive adjustments: smaller on mobile, larger on wide screens */
-@media screen and (max-width: 540px) {
-  .certifications__img {
-    width: 280px;
-    height: 160px;
-  }
-  .certifications__item {
-    min-height: 180px;
-    padding: 0.75rem;
-  }
-}
-
-@media screen and (min-width: 1150px) {
-  .certifications__img {
-    width: 260px;
-    height: 156px;
-  }
-  .certifications__item {
-    min-height: 260px;
-  }
-}
-
 /*=============== SERVICES ===============*/
-
 .services {
   background-color: var(--container-color);
 }
@@ -676,7 +606,6 @@ img {
 }
 
 /*=============== CONTACT ===============*/
-
 .contact__container {
   row-gap: 4rem;
 }
@@ -752,7 +681,6 @@ img {
 }
 
 /*=============== FOOTER ===============*/
-
 .footer {
   background-color: var(--container-color);
 }
@@ -785,7 +713,6 @@ img {
 }
 
 /*=============== SCROLL BAR ===============*/
-
 ::-webkit-scrollbar {
   width: 0.6rem;
   background-color: hsl(var(--hue), 20%, 20%);
@@ -800,7 +727,6 @@ img {
 }
 
 /*=============== SCROLL UP ===============*/
-
 .scrollup {
   position: fixed;
   right: 1rem;
@@ -818,16 +744,71 @@ img {
 }
 
 /* Show Scroll Up */
-
 .show-scroll {
   bottom: 3rem;
 }
 
 /*=============== BREAKPOINTS ===============*/
 
-/* For small devices */
+/* Responsive typography */
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 5.5rem;
+    --big-font-size: 2.75rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1.125rem;
+    --small-font-size: 0.875rem;
+  }
+}
 
-@media screen and (max-width: 425px) {
+/* Navigation for mobile devices */
+@media screen and (max-width: 1150px) {
+  .dark-mode-toggle {
+    position: fixed;
+    top: 0;
+    right: 10%;
+    padding: 1.2rem;
+  }
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: hsla(var(--hue), 70%, 4%, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    width: 80%;
+    height: 100%;
+    padding: 7rem 3rem;
+    transition: right 0.4s;
+  }
+}
+
+/* Certifications responsive */
+@media screen and (max-width: 540px) {
+  .certifications__img {
+    width: 280px;
+    height: 160px;
+  }
+  .certifications__item {
+    min-height: 180px;
+    padding: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .certifications__img {
+    width: 260px;
+    height: 156px;
+  }
+  .certifications__item {
+    min-height: 260px;
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 450px) {
   /* Center services card content on small screens */
   .services__card {
     display: flex;
@@ -883,7 +864,6 @@ img {
 }
 
 /* For medium devices */
-
 @media screen and (min-width: 540px) {
   .home__container,
   .work__container,
@@ -941,7 +921,6 @@ img {
 }
 
 /* For large devices */
-
 @media screen and (min-width: 1150px) {
   .container {
     margin-inline: auto;
@@ -1044,25 +1023,6 @@ img {
     margin-bottom: 1.5rem;
   }
 
-  /* .contact__container{
-  grid-template-columns: 580px;
-}
-
-.contact__group{
-  grid-template-columns: repeat(2, 1fr);
-}
-.contact__area{
-  height: 12rem;
-}
-.contact__button{
-  margin-top: 1.5rem;
-  width: max-content;
-}
-
-.contact__message{
-  bottom: 2rem;
-} */
-
   .contact__social {
     grid-template-columns: repeat(4, max-content);
     column-gap: 5rem;
@@ -1085,26 +1045,26 @@ img {
   }
 }
 
-@media (max-width:1024px) and (min-width:451px) {
- .contact__social {
+@media (max-width: 1024px) and (min-width: 451px) {
+  .contact__social {
     grid-template-columns: repeat(4, max-content);
     column-gap: 2rem;
   }
 }
 
-@media (max-width:450px) and (min-width:320px) {
- .contact__social {
+@media (max-width: 450px) and (min-width: 320px) {
+  .contact__social {
     grid-template-columns: repeat(4, max-content);
     column-gap: 2rem;
   }
   .contact__social-link {
-   margin-top: 0;
-   
-  span {
-    font-size: 0rem;
+    margin-top: 0;
+
+    span {
+      font-size: 0rem;
+    }
   }
- }
- .footer__container {
+  .footer__container {
     padding: 1rem 0;
     gap: 2rem;
     margin: 0;

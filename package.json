@@ -1,0 +1,20 @@
+{
+  "name": "responsive-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:js": "esbuild main.js --minify --outfile=dist/main.js",
+    "build:css": "cleancss -o dist/style.css style.css && cleancss -o dist/certificates.css certificates.css",
+    "copy": "cpx \"*.html\" dist/ && cpx \"scrollreveal.min.js\" dist/ && cpx \"Assets/**/*\" dist/Assets",
+    "build": "npm run clean && npm run build:css && npm run build:js && npm run copy",
+    "start": "npx http-server dist -p 8080"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.0",
+    "clean-css-cli": "^5.3.2",
+    "cpx": "^1.5.0",
+    "rimraf": "^5.0.0",
+    "http-server": "^14.1.1"
+  }
+}
