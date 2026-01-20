@@ -1,4 +1,10 @@
-/*=============== LAYOUT ===============*/
+/* ============================== */
+/* Certificates page — organized */
+/* ============================== */
+
+/* Layout */
+
+/* Make gallery full-width without changing global `.container` */
 .cert-gallery.container {
   max-width: 100%;
   width: 100vw;
@@ -12,7 +18,6 @@
   padding: 4rem 1.5rem;
   position: relative;
 }
-
 .cert-gallery__grid {
   display: grid;
   gap: 1.5rem;
@@ -20,7 +25,7 @@
   align-items: stretch;
 }
 
-/*=============== CARD ===============*/
+/* Card */
 .cert-card {
   background: var(--container-color);
   padding: 1rem;
@@ -32,21 +37,19 @@
   min-height: 260px;
 }
 
-/*=============== FIGURE / IMAGE ===============*/
+/* Figure / Image */
 .cert-figure {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .cert-figure a {
   display: block;
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
 }
-
 .cert-figure img,
 .cert-card img {
   width: 100%;
@@ -56,7 +59,7 @@
   display: block;
 }
 
-/*=============== CAPTION ===============*/
+/* Caption */
 .cert-caption {
   margin-top: 0.6rem;
   font-size: 0.95rem;
@@ -64,7 +67,7 @@
   text-align: center;
 }
 
-/*=============== HEADER / TITLE ===============*/
+/* Header / Title */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -72,7 +75,6 @@
   margin: 3rem 0;
   position: relative;
 }
-
 .topbar-spacer {
   width: 64px;
 }
@@ -80,7 +82,6 @@
 .info__title::after {
   display: none !important;
 }
-
 .info__title {
   text-decoration: none;
   position: absolute;
@@ -89,13 +90,12 @@
   margin: 0;
 }
 
-/*=============== BACK BUTTONS ===============*/
+/* Back buttons */
 .topbar a,
 .topbar a:visited {
   color: var(--title-color);
   text-decoration: none;
 }
-
 .nav__logo {
   font-size: 0.95rem;
   padding: 6px 10px;
@@ -107,11 +107,9 @@
   align-items: center;
   gap: 0.4rem;
 }
-
 .nav__logo:hover {
   background: rgba(255, 255, 255, 0.03);
 }
-
 .cert-back {
   position: absolute;
   /* place the button above the gallery's top edge */
@@ -123,13 +121,11 @@
   background: rgba(255, 255, 255, 0.02);
   border-radius: 6px;
 }
-
 .cert-gallery-footer {
   display: flex;
   justify-content: center;
   margin-top: 1.5rem;
 }
-
 .cert-back--centered {
   position: static;
   top: auto;
@@ -137,7 +133,10 @@
   margin: 0;
 }
 
-/*=============== RESPONSIVE ===============*/
+/* ------------------------------ */
+/* Responsive - moved to the end */
+/* ------------------------------ */
+
 @media (min-width: 1024px) {
   .cert-figure img,
   .cert-card img {
@@ -145,7 +144,7 @@
   }
 }
 
-@media (max-width: 450px) and (min-width: 310px) {
+@media (max-width: 430px) and (min-width: 320px) {
   .info__title {
     font-size: 1.1rem;
   }
@@ -157,7 +156,6 @@
     font-size: 0.7rem;
     padding: 5px 8px;
   }
-
   .cert-gallery.container {
     padding: 1rem;
   }
