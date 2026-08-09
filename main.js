@@ -24,6 +24,9 @@ const linkAction = () => {
   const navMenu = document.getElementById("nav-menu");
   // When we click on each nav__link, we remove the show-menu class
   navMenu.classList.remove("show-menu");
+
+  const darkModeToggle = document.getElementById("dark-mode-toggle");
+  if (darkModeToggle) darkModeToggle.style.display = "block";
 };
 
 navLinks.forEach((n) => n.addEventListener("click", linkAction));
